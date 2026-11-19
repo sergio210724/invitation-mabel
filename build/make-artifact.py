@@ -17,7 +17,7 @@ body = body.replace('<button class="btn btn-ical" id="btnIcal" type="button">',
 body = body.replace('</button>\n      <button class="btn btn-compartir"',
                     '</a>\n      <button class="btn btn-compartir"')
 
-ics = re.search(r"\/\* ── agregar al calendario.*?aviso\('Listo, te lo agregamos al calendario 📅'\);\n\}\);", script, re.S).group(0)
+ics = re.search(r"\/\* ── agregar al calendario.*?aviso\('Listo, te lo agregamos al calendario 📅'\);\s*\}\);", script, re.S).group(0)
 cal = """/* ── agregar al calendario ────────────────────────────── */
 (function(){
   const ini = new Date(EVENTO.fechaISO);

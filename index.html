@@ -242,37 +242,24 @@
     .escena {
       position: relative;
       z-index: 2;
-      margin-top: 46px
+      margin-top: 42px;
     }
 
     .tienda {
-      width: 78%;
-      max-width: 304px;
+      width: 82%;
+      max-width: 310px;
       margin: 0 auto;
-      filter: drop-shadow(0 16px 20px rgba(150, 50, 90, .22))
+      filter: drop-shadow(0 16px 20px rgba(150, 50, 90, .22));
     }
 
     .protagonista {
       position: absolute;
-      right: 0%;
-      bottom: -7%;
-      width: 31%;
-      max-width: 112px;
-      z-index: 3
-    }
-
-    .payaso-hero {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 10px 12px rgba(150, 50, 90, .25))
-    }
-
-    .globo {
-      position: absolute;
-      left: -1%;
-      top: 16%;
-      width: 18%;
-      max-width: 66px
+      left: 50%;
+      bottom: 2%;
+      transform: translateX(-50%);
+      width: 28%;
+      max-width: 100px;
+      z-index: 3;
     }
 
     .foto-hero {
@@ -284,42 +271,58 @@
       border: 5px solid #fff;
     }
 
+    .globo {
+      position: absolute;
+      left: 1%;
+      top: 14%;
+      width: 18%;
+      max-width: 64px;
+    }
+
     .elenco {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      gap: 2px;
-      margin: -90px 0 2px;
-      padding: 0 4px;
-      right: 12%;
+      gap: clamp(6px, 2vw, 14px);
+      margin: -48px auto 4px;
+      padding: 0 clamp(8px, 2.5vw, 16px);
       position: relative;
-      z-index: 3;
+      z-index: 4;
+      width: 100%;
+      max-width: 460px;
+      box-sizing: border-box;
     }
 
     .elenco-item {
-      display: block;
-      width: 60px;
-      flex: none
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex: 1 1 0;
+      max-width: 58px;
+      min-width: 38px;
     }
 
-    .elenco-item svg {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 5px 5px rgba(150, 50, 90, .16))
-    }
-
-    .elenco-item img {
+    .elenco-item svg,
+    .elenco-item img,
+    .elenco-item .cast-art {
       width: 100%;
       height: auto;
       display: block;
-      /* border-radius: 50%; */
-      /* border: 3px solid #fff */
+      filter: drop-shadow(0 6px 8px rgba(150, 50, 90, .2));
     }
 
     .elenco-item.principal {
-      width: 64px;
-      margin: 0 -5px;
-      transform: translateY(-10px)
+      flex: 1.28 1 0;
+      max-width: 74px;
+      min-width: 48px;
+      transform: translateY(-8px);
+      z-index: 5;
+    }
+
+    .elenco-item.principal svg,
+    .elenco-item.principal img,
+    .elenco-item.principal .cast-art {
+      filter: drop-shadow(0 10px 14px rgba(150, 50, 90, .28));
     }
 
     /* listón */
@@ -742,17 +745,22 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: 2px;
-      margin-bottom: 6px
+      gap: clamp(8px, 2.8vw, 16px);
+      margin-bottom: 10px;
+      padding: 0 10px;
     }
 
-    .desfile svg {
-      height: 64px;
-      width: auto
+    .desfile svg,
+    .desfile img,
+    .desfile .cast-art {
+      height: clamp(52px, 14vw, 68px);
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 4px 6px rgba(150, 50, 90, .18));
     }
 
     .desfile .chico {
-      height: 80px
+      height: clamp(66px, 18vw, 84px);
     }
 
     .cierre-t {
@@ -1148,31 +1156,18 @@
           <svg class="globo" viewBox="0 0 80 120" aria-hidden="true">
             <use href="#globo" />
           </svg>
-          <span class="protagonista" id="protagonista">
-            <svg class="payaso-hero" id="payasoHero" data-cast="payaso-azul" viewBox="0 0 100 120" aria-hidden="true">
-              <use href="#payaso" />
-            </svg>
-            <img class="foto-hero" id="fotoHero" src="foto.jpg" alt="Mabel" hidden>
+          <span class="protagonista" id="protagonista" hidden>
+            <img class="foto-hero" id="fotoHero" src="foto.jpg" alt="Mabel">
           </span>
         </div>
 
         <div class="elenco" aria-hidden="true">
-          <span class="elenco-item"><svg data-cast="conejo" viewBox="0 0 100 120">
-              <use href="#conejo" />
-            </svg></span>
-          <span class="elenco-item"><svg data-cast="perro" viewBox="0 0 100 120">
-              <use href="#perro" />
-            </svg></span>
-          <span class="elenco-item"><svg data-cast="cerdo" viewBox="0 0 100 120">
-              <use href="#cerdo" />
-            </svg></span>
-          <span class="elenco-item"><svg data-cast="oso" viewBox="0 0 100 120">
-              <use href="#oso" />
-            </svg></span>
-          <span class="elenco-item"><svg data-cast="gato" viewBox="0 0 100 120">
-              <use href="#gato" />
-            </svg></span>
-
+          <span class="elenco-item"><svg data-cast="conejo" viewBox="0 0 100 120"><use href="#conejo" /></svg></span>
+          <span class="elenco-item"><svg data-cast="perro" viewBox="0 0 100 120"><use href="#perro" /></svg></span>
+          <span class="elenco-item principal"><svg data-cast="payaso-azul" viewBox="0 0 100 120"><use href="#payaso" /></svg></span>
+          <span class="elenco-item"><svg data-cast="cerdo" viewBox="0 0 100 120"><use href="#cerdo" /></svg></span>
+          <span class="elenco-item"><svg data-cast="oso" viewBox="0 0 100 120"><use href="#oso" /></svg></span>
+          <span class="elenco-item"><svg data-cast="gato" viewBox="0 0 100 120"><use href="#gato" /></svg></span>
         </div>
 
         <div class="cinta">
@@ -1492,21 +1487,13 @@
       });
     });
 
-    /* ── foto de la festejada: si existe foto.jpg, sustituye al pollito ── */
+    /* ── foto de la festejada: si existe foto.jpg, aparece en la carpa ── */
     (function () {
-      const foto = $('#fotoHero'), payaso = $('#payasoHero');
-      const elenco = document.querySelector('.elenco');
-      if (!foto || !payaso || !elenco) return;
-      foto.addEventListener('error', () => { foto.remove(); });
+      const foto = $('#fotoHero'), protag = $('#protagonista');
+      if (!foto || !protag) return;
+      foto.addEventListener('error', () => { protag.remove(); });
       foto.addEventListener('load', () => {
-        // Mabel toma el lugar del protagonista y el payaso baja a presentar al elenco
-        foto.hidden = false;
-        payaso.hidden = true;
-        const copia = document.createElement('span');
-        copia.className = 'elenco-item principal';
-        copia.setAttribute('data-art', 'payaso-azul');
-        copia.appendChild(payaso.cloneNode(true));
-        elenco.insertBefore(copia, elenco.firstChild);
+        protag.hidden = false;
       });
     })();
 
