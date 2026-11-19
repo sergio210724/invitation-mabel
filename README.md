@@ -111,7 +111,7 @@ cd ~/Workspace/invitacion-virtual
 vercel deploy --prod
 ```
 
-Sale una URL tipo `invitacion-virtual.vercel.app`. La vista previa con la foto
+Sale la URL de producción: `https://cumple-mabel.vercel.app`. La vista previa con la foto
 (`og.png`) solo aparece con URL; como archivo, WhatsApp muestra un rectángulo vacío.
 
 ## Detalles técnicos
